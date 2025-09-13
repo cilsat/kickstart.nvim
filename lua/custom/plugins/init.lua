@@ -133,8 +133,7 @@ return {
       },
     },
     keys = {
-      { '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = '[G]it [D]iff against index' },
-      { '<leader>gf', '<cmd>DiffviewFileHistory %<cr>', desc = '[G]it [F]ile history' },
+      { '<leader>gf', '<cmd>DiffviewFileHistory %<cr>', desc = 'git [f]ile history' },
     },
   },
   {
