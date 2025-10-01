@@ -143,8 +143,12 @@ rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
-  -- Detect tabstop and shiftwidth automatically
-  -- 'NMAC427/guess-indent.nvim',
+  { -- Detect tabstop and shiftwidth automatically
+    'NMAC427/guess-indent.nvim',
+    config = function()
+      require('guess-indent').setup {}
+    end,
+  },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
@@ -281,6 +285,8 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = 'search [c]ommands' })
+      vim.keymap.set('n', '<leader>sC', builtin.command_history, { desc = 'search [C]ommand history' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'search [h]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'search [k]eymaps' })
       vim.keymap.set('n', '<leader>e', builtin.find_files, { desc = '[e]xplore files' })
